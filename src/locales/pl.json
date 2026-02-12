@@ -11,7 +11,14 @@
   },
   "worlds": {
     "title": "Światy",
-    "subtitle": "Dołącz do świata lub stwórz własny."
+    "subtitle": "Dołącz do świata lub stwórz własny.",
+    "create": "Stwórz nowy świat",
+    "createPlaceholder": "Nazwa świata",
+    "playOffline": "Graj offline (demo)",
+    "myWorlds": "Moje światy",
+    "loading": "Ładowanie…",
+    "error": "Błąd",
+    "enterWorld": "Wejdź"
   },
   "career": {
     "title": "Moja Kariera"

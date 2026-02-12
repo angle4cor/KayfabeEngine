@@ -11,7 +11,14 @@
   },
   "worlds": {
     "title": "Worlds",
-    "subtitle": "Join a world or create your own."
+    "subtitle": "Join a world or create your own.",
+    "create": "Create new world",
+    "createPlaceholder": "World name",
+    "playOffline": "Play offline (demo)",
+    "myWorlds": "My worlds",
+    "loading": "Loading…",
+    "error": "Error",
+    "enterWorld": "Enter world"
   },
   "career": {
     "title": "My Career"

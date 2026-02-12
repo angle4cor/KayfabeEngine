@@ -1,5 +1,10 @@
 import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-dom';
+
+function WorldRedirect() {
+  const { worldId } = useParams();
+  return <Navigate to={`/world/${worldId}/career`} replace />;
+}
 import { AuthProvider } from './context/AuthContext';
 import { SettingsProvider } from './context/SettingsContext';
 import { WorldProvider } from './context/WorldContext';
@@ -29,6 +34,7 @@ export default function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/worlds" element={<WorldSelect />} />
+                <Route path="/world/:worldId" element={<WorldRedirect />} />
                 <Route path="/world/:worldId/career" element={<MyCareer />} />
                 <Route path="/world/:worldId/write-rp" element={<WriteRP />} />
                 <Route path="/world/:worldId/show/:showId" element={<ShowView />} />
