@@ -11,7 +11,7 @@ Use this rule in every Kayfabe Engine task. It defines the current phase, key fi
 ## Current phase
 
 - **Done:** Phase 0.0 (bootstrap), Phase 1.0 (Core Schemas + Match Engine).
-- **Next:** Phase 2.0 (World Management: WorldContext, Firestore, worldSimulator).
+- **Next:** Phase 3.0 (RP System: Tiptap editor, AI scoring, RP board).
 
 ## Key files (modify/create)
 
