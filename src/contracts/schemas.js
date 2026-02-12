@@ -176,11 +176,32 @@ export const GameStateDateSchema = z.object({
 /** Match result (output of matchEngine) */
 export const MatchResultSchema = z.object({
   winnerId: z.string(),
-  loserId: z.string().optional(),
+  loserId: z.string().optional(), // deprecated: use loserIds
+  loserIds: z.array(z.string()).optional().default([]),
+  winningTeam: z.number().int().optional(),
   method: methodEnum,
   rating: z.number().min(0).max(5),
   duration: z.number().optional(),
+  highlights: z.array(z.string()).optional().default([]),
 }).passthrough();
+
+/** Match engine input participant (id + optional stats) */
+export const MatchInputParticipantSchema = z.object({
+  id: z.string(),
+  ovr: z.number().min(0).max(100).optional(),
+  momentum: z.number().min(0).max(100).optional(),
+  rpScore: z.number().min(0).max(10).optional(),
+  team: z.number().int().optional(),
+  technical: z.number().min(0).max(100).optional(),
+  power: z.number().min(0).max(100).optional(),
+}).strip();
+
+/** Match engine input (for simulateMatch) */
+export const MatchInputSchema = z.object({
+  participants: z.array(MatchInputParticipantSchema),
+  matchType: matchTypeEnum,
+  seed: z.number().optional(),
+}).strip();
 
 export function validateWrestler(w) {
   return WrestlerSchema.safeParse(w);
@@ -205,4 +226,7 @@ export function validateGameStateDate(date) {
 }
 export function validateMatchResult(m) {
   return MatchResultSchema.safeParse(m);
+}
+export function validateMatchInput(input) {
+  return MatchInputSchema.safeParse(input);
 }

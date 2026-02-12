@@ -2,26 +2,25 @@
 
 ## Status
 
-**Phase:** Next (Phase 1.0)  
+**Phase:** Done (Phase 1.0)  
 **Owner:** AI + User  
 **Dependencies:** None (headless foundation)
 
-## Current Phase
+## Completed (Phase 1.0)
 
-- Phase 1.0: Implement `matchEngine.js` with deterministic outcome from RP score (60%), wrestler stats (20%), momentum (10%), RNG (10%). Seeded RNG when seed provided.
-- Unit tests: same seed => same result; no DOM/window.
+- `matchEngine.js`: deterministic outcome from RP score (60%), ovr (20%), momentum (10%), RNG (10%); seeded RNG when seed provided.
+- Match types: singles, tag, triple threat. Returns `{ winnerId, loserIds, method, rating, duration }` (and optional `winningTeam` for tag).
+- Shared helpers: `computeComposite`, `pickMethod`, `calcRating`, `calcDuration`. Unified API: `simulateMatch({ participants, matchType, seed })`.
+- Schemas: `MatchResultSchema` (loserIds, winningTeam, highlights), `MatchInputSchema` / `MatchInputParticipantSchema`, `validateMatchInput`.
+- Unit tests: `tests/unit/engine/matchEngine.test.js` (determinism, weights, edge cases, all match types, schema validation); no DOM.
 
-## Definition of Done (per sub-task)
-
-- Match types: singles, tag, triple threat at minimum.
-- Returns { winnerId, method, rating, duration }.
-- 90%+ coverage for `matchEngine.js`.
-
-## Files to Modify
+## Files Modified
 
 - `src/engine/matchEngine.js`
-- `src/contracts/schemas.js` (MatchSchema, MatchResultSchema)
+- `src/contracts/schemas.js`
+- `src/data/movesets.js` (SUBMISSIONS, DQ_SCENARIOS)
 - `tests/unit/engine/matchEngine.test.js`
+- `tests/unit/contracts/schemas.test.js`
 
 ## Next Phase (future)
 

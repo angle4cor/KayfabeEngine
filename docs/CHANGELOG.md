@@ -4,6 +4,13 @@ All notable changes to the Kayfabe Engine project are documented here.
 
 ## [Unreleased]
 
+### Added (Phase 1.0 — Core Schemas + Match Engine)
+
+- **Schemas:** `MatchResultSchema` extended with `loserIds` (array), `winningTeam`, `highlights`; deprecated `loserId` kept for transition. New `MatchInputSchema` and `MatchInputParticipantSchema` for match engine input validation; `validateMatchInput` helper.
+- **Match engine:** Full deterministic simulation in `matchEngine.js`: `computeComposite`, `pickMethod`, `calcRating`, `calcDuration`; `simulateSinglesMatch`, `simulateTagMatch`, `simulateTripleThreatMatch`; unified `simulateMatch({ participants, matchType, seed })` with input/output schema validation. Weighting: RP 60%, ovr 20%, momentum 10%, RNG 10%.
+- **Movesets:** `SUBMISSIONS` and `DQ_SCENARIOS` arrays in `src/data/movesets.js` for future narrative/highlights.
+- **Tests:** `tests/unit/engine/matchEngine.test.js` (determinism, weights, edge cases, all match types, schema validation); `tests/unit/contracts/schemas.test.js` (round-trip and rejection).
+
 ### Added (Phase 0.0 — Bootstrap)
 
 - Project scaffold at `E:\Skrypty\KayfabeEngine\`.
