@@ -1,0 +1,65 @@
+---
+description: Kayfabe Engine auto-pilot rule — current phase, file map, checklists, decision gates
+globs:
+alwaysApply: true
+---
+
+# Kayfabe Engine Agent Rule
+
+Use this rule in every Kayfabe Engine task. It defines the current phase, key files, and checklists.
+
+## Current phase
+
+- **Done:** Phase 0.0 (bootstrap — scaffold, docs, copied utilities, stubs).
+- **Next:** Phase 1.0 (Core Schemas + Match Engine: Zod schemas for all entities, `matchEngine.js` with tests). Do not edit the plan file itself.
+
+## Key files (modify/create)
+
+| Action   | File |
+|----------|------|
+| Engine   | `src/engine/matchEngine.js`, `src/engine/rpScorer.js`, `src/engine/bookerAI.js`, `src/engine/worldSimulator.js`, `src/engine/tewConverter.js` |
+| Context  | `src/context/WorldContext.jsx`, `src/context/AuthContext.jsx`, `src/context/SettingsContext.jsx` |
+| Contracts| `src/contracts/schemas.js` |
+| Hooks    | `src/hooks/useWorld.js`, `src/hooks/useMyCareer.js` |
+| Pages    | `src/pages/Home.jsx`, `src/pages/WorldSelect.jsx`, `src/pages/MyCareer.jsx`, `src/pages/WriteRP.jsx`, `src/pages/ShowView.jsx`, `src/pages/Roster.jsx` |
+| UI       | `src/components/` (RpEditor, ShowCard, MatchResult, WrestlerProfile, FederationDash, etc.) |
+| Routes   | `src/App.jsx` (lazy routes, Suspense) |
+| Utils    | `src/utils/aiClient.js`, `src/utils/logger.js`, `src/utils/rng.js`, `src/utils/aiCostHelper.js` |
+| Server   | `server/index.js` |
+| Docs     | `docs/MASTER_ROADMAP.md`, `docs/CHANGELOG.md`, `docs/DECISIONS.md`, `docs/ARCHITECTURE.md` |
+| Tracks   | `docs/tracks/T1_RP_SYSTEM.md` … `T8_TEW.md` |
+| Tests    | `tests/` (Vitest); do not rely on `test/` for Vitest runs |
+
+## Pre-flight checklist
+
+1. Run `npm test` before making changes (from repo root: `E:\Skrypty\KayfabeEngine` or `cd "E:\Skrypty\KayfabeEngine"` then `npm test`).
+2. Check lints on files you intend to edit.
+
+## Post-flight checklist
+
+1. Run `npm test` again; all tests must pass.
+2. Update `docs/CHANGELOG.md` for user-visible or structural changes.
+3. Update phase/status in `docs/MASTER_ROADMAP.md` when completing a phase or sprint.
+4. Record non-obvious decisions in `docs/DECISIONS.md`.
+
+## Decision gates (ask user before proceeding)
+
+- Changing `src/contracts/schemas.js` or API contracts.
+- Adding new dependencies (npm packages).
+- Changing Firestore/Storage rules or auth model.
+- Large refactors that touch more than ~6 files at once.
+- Removing or changing existing game modes or world structure.
+
+## References
+
+- Master roadmap: `docs/MASTER_ROADMAP.md`
+- Tracks: `docs/tracks/T1_RP_SYSTEM.md`, `T2_MATCH_ENGINE.md`, `T3_WORLD_SIM.md`, `T4_BOOKING.md`, `T5_MYCAREER.md`, `T6_MULTIPLAYER.md`, `T7_FRONTEND.md`, `T8_TEW.md`
+- Architecture: `docs/ARCHITECTURE.md`
+- Decisions: `docs/DECISIONS.md`
+
+## Conventions
+
+- Engine code must stay headless (no window/document/React).
+- Touch targets: minimum 44×44px for interactive elements (WCAG / mobile).
+- Max ~6 files modified per task when possible; split large work into smaller tasks.
+- RP scoring is AI-only (no manual overrides unless explicitly a booker feature).

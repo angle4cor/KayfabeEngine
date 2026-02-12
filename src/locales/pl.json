@@ -1,0 +1,28 @@
+{
+  "app": {
+    "title": "Kayfabe Engine"
+  },
+  "home": {
+    "tagline": "Interaktywny E-Fed wrestling. Pisz RP, układaj gale, buduj swój świat."
+  },
+  "nav": {
+    "worlds": "Światy",
+    "back": "Wstecz"
+  },
+  "worlds": {
+    "title": "Światy",
+    "subtitle": "Dołącz do świata lub stwórz własny."
+  },
+  "career": {
+    "title": "Moja Kariera"
+  },
+  "rp": {
+    "writeTitle": "Napisz RP"
+  },
+  "show": {
+    "title": "Gala"
+  },
+  "roster": {
+    "title": "Roster"
+  }
+}
