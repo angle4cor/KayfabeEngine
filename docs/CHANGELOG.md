@@ -4,6 +4,14 @@ All notable changes to the Kayfabe Engine project are documented here.
 
 ## [Unreleased]
 
+### Added (Phase 2.0 — World Management)
+
+- **Firestore:** `src/utils/worldFirestore.js` — loadWorld, subscribeWorld, createWorld, updateWorld, listWorlds; structure worlds/{worldId}, federations, wrestlers, shows, storylines, news.
+- **WorldContext:** Uses worldSimulator.advanceDay/advanceWeek; loadWorld, createWorld, createLocalWorld; Firestore realtime subscribe when worldId set; persist localStorage for local/offline worlds.
+- **WorldSelect:** Create new world (name + Firestore), Play offline (demo), My worlds list (when logged in); enter world → career.
+- **Routing:** `/world/:worldId` redirects to `/world/:worldId/career`.
+- **Locales:** worlds.create, playOffline, myWorlds, loading, error, enterWorld (en/pl).
+
 ### Added (Phase 1.0 — Core Schemas + Match Engine)
 
 - **Schemas:** `MatchResultSchema` extended with `loserIds` (array), `winningTeam`, `highlights`; deprecated `loserId` kept for transition. New `MatchInputSchema` and `MatchInputParticipantSchema` for match engine input validation; `validateMatchInput` helper.

@@ -4,15 +4,16 @@ Living document for AI agents and the developer. Read this first before any task
 
 ## Current Sprint
 
-**Phase:** 1.0 complete; next Phase 2.0 (World Management).  
+**Phase:** 2.0 complete; next Phase 3.0 (RP System).  
 **Goal:** See `docs/tracks/` and `.cursor/rules/kayfabe-agent.mdc` for file map and checklists.
 
 ### Active Tasks
 
-- Phase 2.0: World Management (WorldContext, Firestore, worldSimulator).
+- Phase 3.0: RP System (Tiptap editor, upload, AI scoring, RP board).
 
 ### Completed
 
+- [x] Phase 2.0: World Management — worldFirestore (load/subscribe/create/list), WorldContext + worldSimulator, WorldSelect (create/offline/my worlds), /world/:worldId.
 - [x] Phase 1.0: Core Schemas + Match Engine — MatchResultSchema/MatchInputSchema, full matchEngine (singles, tag, triple threat), simulateMatch, unit tests.
 - [x] Phase 0.0: Bootstrap — project scaffold, configs, docs, Cursor rule, copied utilities from PWQ, stubs (WorldContext, pages, engine, schemas).
 
@@ -22,8 +23,8 @@ Living document for AI agents and the developer. Read this first before any task
 |-------|--------|--------|
 | 0 | Bootstrap | Done |
 | 1 | Core Schemas + Match Engine | Done |
-| 2 | World Management (WorldContext, Firestore, worldSimulator) | Next |
-| 3 | RP System (Tiptap editor, upload, AI scoring, RP board) | Pending |
+| 2 | World Management (WorldContext, Firestore, worldSimulator) | Done |
+| 3 | RP System (Tiptap editor, upload, AI scoring, RP board) | Next |
 | 4 | Booking System (bookerAI, show card, simulation, results) | Pending |
 | 5 | MyCareer (wrestler creation, booker dashboard, owner mode) | Pending |
 | 6 | Multiplayer (Firestore realtime, invites, RP deadlines) | Pending |
@@ -36,7 +37,7 @@ Living document for AI agents and the developer. Read this first before any task
 |-------|--------|--------|
 | T1 RP System | RP editor, scoring, upload | Pending |
 | T2 Match Engine | Headless match simulation | Done (Phase 1.0) |
-| T3 World Sim | Day ticker, contracts, news | Pending |
+| T3 World Sim | Day ticker, contracts, news | In progress (Phase 2) |
 | T4 Booking | AI booking, show cards, feuds | Pending |
 | T5 MyCareer | Wrestler/Booker/Owner | Pending |
 | T6 Multiplayer | Firestore realtime, sync | Pending |

@@ -2,13 +2,16 @@
 
 ## Status
 
-**Phase:** Pending (post–Phase 2)  
+**Phase:** In progress (Phase 2 world structure done)  
 **Owner:** AI + User  
 **Dependencies:** T2 (match engine), T6 (Firestore structure)
 
-## Current Phase
+## Done in Phase 2
 
-(Not started.) After Phase 2:
+- WorldContext uses worldSimulator.advanceDay/advanceWeek; Firestore load/subscribe/create; localStorage for offline.
+- worldFirestore.js: loadWorld, subscribeWorld, createWorld, updateWorld, listWorlds.
+
+## Current Phase
 
 - T3.1: `worldSimulator.js`: advanceDay / advanceWeek; update currentDate.
 - T3.2: Contract expiry, injury duration countdown, momentum decay.
